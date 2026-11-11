@@ -27,3 +27,18 @@ The event handlers and calculation code determine what happens when the user cli
 Open `pom.xml` as a Maven project and select Amazon Corretto 24 as the JDK.
 In your IDE's Maven panel, open the JavaFX plugin and run its `run` goal.
 Maven downloads the JavaFX libraries automatically.
+
+## CSS styling
+
+`src/main/resources/calculator.css` sets the application's colors and fonts.
+The `start` method loads it from the classpath and adds it to the scene:
+
+```java
+scene.getStylesheets().add(getClass().getResource("/calculator.css").toExternalForm());
+```
+
+`Button` is a type selector that styles all buttons. The `.multiply-divide` class
+styles the multiply and divide buttons, assigned with
+`button.getStyleClass().add("multiply-divide")`. The `#add-button` ID styles just
+the add button, assigned with `button.setId("add-button")`. These selectors give
+the buttons different colors while sharing the same font settings.

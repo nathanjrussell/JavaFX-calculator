@@ -1,0 +1,33 @@
+/* The scene's root sets the background, default font, and padding. */
+.root {
+    -fx-background-color: #f1f5f9;
+    -fx-font-family: "Arial";
+    -fx-font-size: 13px;
+    -fx-padding: 15;
+}
+
+Label {
+    -fx-text-fill: #334155;
+}
+
+TextField {
+    -fx-control-inner-background: #ffffff;
+    -fx-text-fill: #0f172a;
+}
+
+/* Type selector: applies to every Button. */
+Button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* Class selector: shared by the multiply and divide buttons. */
+.multiply-divide {
+    -fx-background-color: #0f766e;
+}
+
+/* ID selector: applies only to the add button. */
+#add-button {
+    -fx-background-color: #7c3aed;
+}

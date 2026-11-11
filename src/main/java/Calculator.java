@@ -16,7 +16,6 @@ public class Calculator extends Application {
         GridPane layout = new GridPane();
         layout.setHgap(10);
         layout.setVgap(10);
-        layout.setStyle("-fx-padding: 15;");
 
         layout.add(new Label("First number:"), 0, 0, 4, 1);
         layout.add(firstNumber, 0, 1, 4, 1);
@@ -27,14 +26,21 @@ public class Calculator extends Application {
         for (int column = 0; column < operations.length; column++) {
             String operation = operations[column];
             Button button = new Button(operation);
+            if (operation.equals("+")) {
+                button.setId("add-button");
+            } else if (operation.equals("*") || operation.equals("/")) {
+                button.getStyleClass().add("multiply-divide");
+            }
             button.setMinWidth(55);
             button.setOnAction(event -> calculate(operation));
             layout.add(button, column, 4);
         }
 
         layout.add(result, 0, 5, 4, 1);
+        Scene scene = new Scene(layout, 310, 240);
+        scene.getStylesheets().add(getClass().getResource("/calculator.css").toExternalForm());
         stage.setTitle("JavaFX Calculator");
-        stage.setScene(new Scene(layout, 310, 240));
+        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
